@@ -1,0 +1,3 @@
+devices:
+  "hostname1": #Device 1 dns/ip here
+  "hostname2": #Device 2 dns/ip here

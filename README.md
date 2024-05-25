@@ -1,5 +1,11 @@
-# PEERNet
+## PEERNet
 
-This repository is the open-source codebase for PEERNet, a profiler for end-to-end networked robotic systems. 
+PEERNet is an end-to-end profiling tool for networked robotic systems. Documentation will be published here soon.
 
-The codebase has not yet been published, but will be available in this repository soon.
+### Installation
+
+```sh
+python -m pip install .
+```
+
+See ```pyproject.toml``` for available installation options.

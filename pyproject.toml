@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages]
+find = {}  # Scanning implicit namespaces is active by default
+
+[project]
+name = "peernet"
+version = "0.0.1"
+authors = [
+  { name="Aditya Narayanan", email="adityan@utexas.edu" },
+]
+description = "A utility for benchmarking networked robotics systems"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Linux",
+]
+dependencies = [
+    "pandas",
+    "pyzmq",
+    "click",
+    "omegaconf",
+    "tqdm", 
+    "seaborn"
+]
+
+[project.optional-dependencies]
+dev = ["black", "ruff", "mypy"]
+test = ["pytest", "pytest-cov", "pytest-mock", "pdbpp"]
+docs = ["mkdocs", "mkdocstrings[python]", "mkdocs-material"]
+torch-inference = ["torch", "torchvision"]
+franka = ["pynput", "imageio", "transforms3d"]
+
+[project.entry-points.console_scripts]
+peernet_cli = "peernet.cli:main"
+cv_bench = "peernet.cli:main" #Supports legacy implementation
+
+[project.urls]
+"Homepage" = "https://github.com/UTAustin-SwarmLab/PEERNet"
+"Bug Tracker" = "https://github.com/UTAustin-SwarmLab/PEERNet/issues"
+
+[tool.black]
+line-length = 80
+
+[tool.ruff]
+lint.select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+  "D",   # pydocstyle
+]
+
+lint.ignore = ["ANN101", "ANN102"]
+
+extend-exclude = [".venv", "venv", "vscode"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
